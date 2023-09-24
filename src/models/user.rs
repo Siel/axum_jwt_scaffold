@@ -17,7 +17,7 @@ pub async fn exists(
 
 pub async fn new(
     name: &String,
-    email: &String,
+    email: &str,
     hashed_password: &String,
     db: &sqlx::Pool<sqlx::Postgres>,
 ) -> anyhow::Result<User> {
@@ -34,7 +34,7 @@ pub async fn new(
 }
 
 pub async fn get_by_email(
-    email: &String,
+    email: &str,
     db: &sqlx::Pool<sqlx::Postgres>,
 ) -> anyhow::Result<Option<User>> {
     let user = sqlx::query_as!(
